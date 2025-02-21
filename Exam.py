@@ -101,11 +101,17 @@ for i in range(len(random_numbers)):  # Loop through each index
     elif random_numbers[i] < 40:
         # If the number is less than 40, replace it with the sum of its digits
         digits = str(random_numbers[i])  # Convert number to string
-        digit_sum = int(digits[0]) + int(digits[1])  # Sum of digits
+
+        if len(digits) == 2:  # ✅ Check if the number has two digits
+            digit_sum = int(digits[0]) + int(digits[1])  # Sum of two digits
+        else:
+            digit_sum = int(digits[0])  # If it's a single-digit number, just use the number itself
+
         random_numbers[i] = digit_sum  # Replace with digit sum
 
 # Step 3: Print the final modified list
 print(random_numbers)
+
 
 # Question 8
 def is_valid_url(url):
